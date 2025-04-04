@@ -1,16 +1,16 @@
-// frontend/src/components/LandingPage.js
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import "../styles/LandingPage.css";
 
 const LandingPage = () => {
-  const irisRef = useRef(null);
+  const logoRef = useRef(null);
+  const taglineRef = useRef(null);
 
   useEffect(() => {
-    // Add animation class after component mounts for the animation to trigger
     setTimeout(() => {
-      if (irisRef.current) {
-        irisRef.current.classList.add("active");
+      if (logoRef.current && taglineRef.current) {
+        logoRef.current.classList.add("active");
+        taglineRef.current.classList.add("active");
       }
     }, 300);
   }, []);
@@ -18,7 +18,7 @@ const LandingPage = () => {
   return (
     <div className="landing-container">
       <div className="navbar">
-        <div className="logo">CVE Collector</div>
+        <div className="logo">IRIS</div>
         <div className="auth-buttons">
           <Link to="/login" className="btn btn-login">
             Log In
@@ -38,12 +38,9 @@ const LandingPage = () => {
           </Link>
         </div>
 
-        <div className="iris-container">
-          <div className="iris" ref={irisRef}>
-            <div className="iris-inner"></div>
-            <div className="iris-mid"></div>
-            <div className="iris-outer"></div>
-          </div>
+        <div className="text-logo-container">
+          <h1 className="iris-text-logo" ref={logoRef}>IRIS</h1>
+          <p className="iris-tagline" ref={taglineRef}>Vision into Vulnerabilities</p>
         </div>
       </div>
 
